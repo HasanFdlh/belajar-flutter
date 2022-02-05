@@ -24,6 +24,17 @@ class _ViewDataState extends State<ViewData> {
   TextEditingController _itemStock = TextEditingController();
 
   @override
+  void initState() {
+    _itemName =
+        TextEditingController(text: widget.list![widget.index]['nm_product']);
+    _itemPrice =
+        TextEditingController(text: widget.list![widget.index]['price']);
+    _itemStock =
+        TextEditingController(text: widget.list![widget.index]['stok']);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

@@ -30,9 +30,16 @@ class DatabaseHelper {
     });
   }
 
-  void View(int id) {
-    String myUrl = "http://192.168.1.12:8000/api/product/$id/edit";
-    http.get(Uri.parse(myUrl)).then((response) {
+  //editData
+  void EditData(int id, String nm_product, String price, String stok) {
+    String myUrl = "http://localhost:8000/api/product/$id";
+    http.put(Uri.parse(myUrl), headers: {
+      "Accept": "application/json"
+    }, body: {
+      "nm_product": "$nm_product",
+      "price": "$price",
+      "stok": "$stok"
+    }).then((response) {
       print('Response status ${response.statusCode}');
       print('response body: ${response.body}');
     });
