@@ -85,7 +85,7 @@ class _DetailPageState extends State<DetailPage> {
                     primary: Colors.blueAccent,
                   ),
                   onPressed: () {
-                    _dbhelper.EditData(widget.list![widget.index]['id']);
+                    //    _dbhelper.EditData(widget.list![widget.index]['id']);
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (contex) => ViewData(
                         list: widget.list,

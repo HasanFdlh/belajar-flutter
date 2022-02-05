@@ -72,8 +72,12 @@ class _ViewDataState extends State<ViewData> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  _dbHelper.AddData(_itemName.text.trim(),
-                      _itemPrice.text.trim(), _itemStock.text.trim());
+                  _dbHelper.EditData(
+                    widget.list![widget.index]['id'],
+                    _itemName.text.trim(),
+                    _itemPrice.text.trim(),
+                    _itemStock.text.trim(),
+                  );
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (contex) => MyHomePage(),
                   ));
