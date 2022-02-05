@@ -1,5 +1,6 @@
 import 'package:crud_flutter/myhomepage.dart';
 import 'package:crud_flutter/services/databaseHelper.dart';
+import 'package:crud_flutter/viewdata.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
@@ -78,6 +79,21 @@ class _DetailPageState extends State<DetailPage> {
                     );
                   },
                   child: Text('Delete'),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blueAccent,
+                  ),
+                  onPressed: () {
+                    _dbhelper.View(widget.list![widget.index]['id']);
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (contex) => ViewData(
+                        list: widget.list,
+                        index: widget.index,
+                      ),
+                    ));
+                  },
+                  child: Text('View'),
                 ),
               ],
             ),

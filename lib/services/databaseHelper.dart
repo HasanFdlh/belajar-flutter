@@ -29,4 +29,12 @@ class DatabaseHelper {
       print('response body: ${response.body}');
     });
   }
+
+  void View(int id) {
+    String myUrl = "http://192.168.1.12:8000/api/product/$id/edit";
+    http.get(Uri.parse(myUrl)).then((response) {
+      print('Response status ${response.statusCode}');
+      print('response body: ${response.body}');
+    });
+  }
 }
