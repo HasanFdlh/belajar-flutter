@@ -1,3 +1,5 @@
+import 'package:crud_flutter/myhomepage.dart';
+import 'package:crud_flutter/services/databaseHelper.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
@@ -14,6 +16,7 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  DatabaseHelper _dbhelper = DatabaseHelper();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +69,14 @@ class _DetailPageState extends State<DetailPage> {
                   style: ElevatedButton.styleFrom(
                     primary: Colors.redAccent,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    _dbhelper.DeleteData(widget.list![widget.index]['id']);
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => MyHomePage(),
+                      ),
+                    );
+                  },
                   child: Text('Delete'),
                 ),
               ],
